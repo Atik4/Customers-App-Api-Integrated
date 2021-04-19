@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\googleg_standard_color_18.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\76f2b6439d16df60df3177021482ee5a\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\rzp_logo.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\050f672b010179704a4870cdceef7e5d\\jetified-checkout-1.6.6\\res\\drawable-hdpi-v4\\rzp_logo.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\76f2b6439d16df60df3177021482ee5a\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\76f2b6439d16df60df3177021482ee5a\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\googleg_disabled_color_18.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\76f2b6439d16df60df3177021482ee5a\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\common_full_open_on_phone.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\76f2b6439d16df60df3177021482ee5a\\core-1.1.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "F:\\Atik\\customers_app\\build\\razorpay_flutter\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\a1794986c7a3c4986f9feb2359005476\\jetified-play-services-base-17.0.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    }
+]
