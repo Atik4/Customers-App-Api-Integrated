@@ -1,8 +1,10 @@
+import 'package:intl/intl.dart';
+
 import '../Models/user_models.dart';
 import 'package:flutter/material.dart';
 
 class PremiumPolicyCard extends StatefulWidget {
-  PolicyPremium policyPremium;
+  final policyPremium;
   Function addPremium, deletePremium;
   PremiumPolicyCard(
       {this.policyPremium, this.addPremium, this.deletePremium, Key key})
@@ -14,6 +16,8 @@ class PremiumPolicyCard extends StatefulWidget {
 class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
   bool isPressed = false;
 
+  final DateFormat formatter = DateFormat('dd/MM/yyyy');
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,10 +27,11 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
             setState(() {
               if (!isPressed) {
                 isPressed = true;
-                widget.addPremium(widget.policyPremium.premium);
+                widget.addPremium(double.parse(widget.policyPremium['prem']));
               } else {
                 isPressed = false;
-                widget.deletePremium(widget.policyPremium.premium);
+                widget
+                    .deletePremium(double.parse(widget.policyPremium['prem']));
               }
             });
           },
@@ -45,7 +50,7 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
                         Container(
                           padding: EdgeInsets.only(left: 20, top: 10),
                           child: Text(
-                            widget.policyPremium.policyNo,
+                            widget.policyPremium['polnum'],
                             style: TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.bold),
                           ),
@@ -60,11 +65,13 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
                                 children: [
                                   Container(
                                     child: Text('Product : ' +
-                                        widget.policyPremium.product),
+                                        widget.policyPremium['product']),
                                   ),
                                   Container(
                                     child: Text('Start Date: ' +
-                                        widget.policyPremium.startDate),
+                                        formatter.format(DateTime.parse(
+                                            widget.policyPremium['occdate'] +
+                                                'T000000'))),
                                   ),
                                 ],
                               ),
@@ -72,11 +79,13 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Due: ' + widget.policyPremium.endDate,
+                                    'Due: ' +
+                                        formatter.format(DateTime.parse(
+                                            widget.policyPremium['ptdate'] +
+                                                'T000000')),
                                   ),
                                   Text(
-                                    'Prem: ' +
-                                        widget.policyPremium.premium.toString(),
+                                    'Prem: ' + widget.policyPremium['prem'],
                                   ),
                                 ],
                               ),
@@ -101,7 +110,7 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
                         Container(
                           padding: EdgeInsets.only(left: 20, top: 10),
                           child: Text(
-                            widget.policyPremium.policyNo,
+                            widget.policyPremium['polnum'],
                             style: TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.bold),
                           ),
@@ -122,11 +131,11 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
                                 children: [
                                   Container(
                                     child: Text('Product : ' +
-                                        widget.policyPremium.product),
+                                        widget.policyPremium['product']),
                                   ),
                                   Container(
                                     child: Text('Start Date: ' +
-                                        widget.policyPremium.startDate),
+                                        widget.policyPremium['occdate']),
                                   ),
                                 ],
                               ),
@@ -134,11 +143,10 @@ class _PremiumPolicyCardState extends State<PremiumPolicyCard> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Due: ' + widget.policyPremium.endDate,
+                                    'Due: ' + widget.policyPremium['ptdate'],
                                   ),
                                   Text(
-                                    'Prem: ' +
-                                        widget.policyPremium.premium.toString(),
+                                    'Prem: ' + widget.policyPremium['prem'],
                                   ),
                                 ],
                               ),

@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class PremiumDashboard extends StatefulWidget {
+  final List premCal;
+  final String year;
+  PremiumDashboard({this.year, this.premCal, Key key}) : super(key: key);
   @override
   _PremiumDashboardState createState() => _PremiumDashboardState();
 }
@@ -23,13 +26,14 @@ class _PremiumDashboardState extends State<PremiumDashboard> {
           //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              // return PremList(
+              return PremList(
+                year: widget.year,
+                month: (i + 1).toString().padLeft(2, '0'),
+              );
+              // return MonthlyPolicyList(
+              //   choice: -2,
               //   month: i,
               // );
-              return MonthlyPolicyList(
-                choice: -2,
-                month: i,
-              );
             }));
           },
           color: colorsList[i],
@@ -47,7 +51,7 @@ class _PremiumDashboardState extends State<PremiumDashboard> {
                 ),
                 FittedBox(
                   fit: BoxFit.fitWidth,
-                  child: Text(monthPremiumList[i].toString()),
+                  child: Text(widget.premCal[i]['premium']),
                 ),
               ],
             ),
@@ -60,7 +64,8 @@ class _PremiumDashboardState extends State<PremiumDashboard> {
   double addTotalPremium() {
     double total = 0;
     for (int i = 0; i < 12; i++) {
-      total += monthPremiumList[i];
+      // total += monthPremiumList[i];
+      total += double.parse(widget.premCal[i]['premium']);
     }
     return total;
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
+import '../utils/network_utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../Screens/ProfilePage.dart';
 import '../Screens/addressChange/address_change_policy_list.dart';
 import '../Screens/bankChange/bank_change_policy_list.dart';
@@ -7,19 +8,15 @@ import '../Screens/topup/topup_list_screen.dart';
 import '../Screens/frequencyChange/frequency_change_policy_list.dart';
 import 'package:flutter/material.dart';
 import '../Screens/service_request_list.dart';
-import '../Screens/login_screen.dart';
 import '../Screens/reportGeneration/report_generation_policy_list.dart';
 import '../Screens/policyList/monthly_policy_list.dart';
-import '../Models/user.dart';
 
-class MainDrawer extends StatefulWidget {
-  User user;
-  MainDrawer({this.user, Key key}) : super(key: key);
-  @override
-  _MainDrawerState createState() => _MainDrawerState();
-}
+class MainDrawer extends StatelessWidget {
+  final String mobile;
+  final String name;
+  final SharedPreferences sharedPreferences;
+  MainDrawer({this.mobile, this.name, this.sharedPreferences});
 
-class _MainDrawerState extends State<MainDrawer> {
   Widget createField(Icon icon, String text, int choice, BuildContext context) {
     return ListTile(
         leading: icon,
@@ -105,15 +102,14 @@ class _MainDrawerState extends State<MainDrawer> {
                       color: Colors.blueGrey,
                     ),
                     Text(
-                      "Mr. ${widget.user.name}",
+                      "$name",
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 20,
                       ),
                     ),
                     Text(
-                      //"xxxxxxxxxx@gmail.com",
-                      widget.user.email,
+                      "$mobile",
                       style: TextStyle(color: Colors.black87),
                     )
                   ],
@@ -154,8 +150,9 @@ class _MainDrawerState extends State<MainDrawer> {
                   style: TextStyle(fontSize: 18),
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginIn()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => LoginIn()));
+                  _logout(context);
                 },
               ),
             ],
@@ -163,5 +160,9 @@ class _MainDrawerState extends State<MainDrawer> {
         ],
       ),
     );
+  }
+
+  _logout(BuildContext context) {
+    NetworkUtils.logoutUser(context, sharedPreferences);
   }
 }
