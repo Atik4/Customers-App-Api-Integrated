@@ -51,6 +51,7 @@ class _PremCalenderState extends State<PremCalender> {
 
     var testResponseJson =
         await NetworkUtils.fetch1(authToken, '/crud/FPOLMASTER/get');
+    print(testResponseJson);
 
     if (responseJson['valid']) {
       print(responseJson);

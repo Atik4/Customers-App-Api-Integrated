@@ -1,3 +1,7 @@
+import 'package:insuranceproject2/utils/auth_utils.dart';
+import 'package:insuranceproject2/utils/network_utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../Screens/policyList/policy_list_final.dart';
 
 import '../../Components/custom_appbar.dart';
@@ -20,6 +24,68 @@ class TopupListScreen extends StatefulWidget {
 class _TopupListScreenState extends State<TopupListScreen> {
   final ScrollController _scrollController = ScrollController();
   List<dynamic> listAll = [];
+
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  SharedPreferences _sharedPreferences;
+  var _name, _id;
+  bool _isLoading = true;
+
+  void initState() {
+    //createFilteredList("");
+    // setState(() {
+    //   this.listAll = getCardContentList();
+    // });
+    super.initState();
+    _fetchSessionAndNavigate();
+  }
+
+  _fetchSessionAndNavigate() async {
+    _sharedPreferences = await _prefs;
+    String authToken = AuthUtils.getToken(_sharedPreferences);
+    _id = _sharedPreferences.getString(AuthUtils.userIdKey);
+    _name = _sharedPreferences.getString(AuthUtils.nameKey);
+
+    if (authToken == null) {
+      _logout();
+    }
+
+    _fetchHome(authToken);
+  }
+
+  _fetchHome(String authToken) async {
+    _showLoading();
+    var responseJson =
+        await NetworkUtils.fetch1(authToken, '/crud/FPOLMASTER/get');
+    print(responseJson);
+    //print(responseJson.length());
+    for (dynamic object in responseJson) {
+      setState(() {
+        listAll.add(object);
+      });
+    }
+    print(listAll.length);
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  _logout() {
+    NetworkUtils.logoutUser(_scaffoldKey.currentContext, _sharedPreferences);
+  }
+
+  _showLoading() {
+    setState(() {
+      _isLoading = true;
+    });
+  }
+
+  _hideLoading() {
+    setState(() {
+      _isLoading = false;
+    });
+  }
 
   getCardContentList() {
     if (widget.choice == -1) return listPolicyPremium;
@@ -52,16 +118,6 @@ class _TopupListScreenState extends State<TopupListScreen> {
   }
 
   @override
-  void initState() {
-    createFilteredList("");
-    setState(() {
-      this.listAll = getCardContentList();
-    });
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(appbarTitle(), '', '', Size.fromHeight(120)),
@@ -82,10 +138,10 @@ class _TopupListScreenState extends State<TopupListScreen> {
                 controller: _scrollController,
                 child: ListView.builder(
                   controller: _scrollController,
-                  itemCount: filteredList.length,
+                  itemCount: listAll.length,
                   itemBuilder: (BuildContext context, int index) {
                     return PolicyCard(
-                      cardContent: filteredList[index],
+                      cardContent: listAll[index],
                       choice: widget.choice,
                     );
                   },

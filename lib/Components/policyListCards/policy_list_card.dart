@@ -1,9 +1,12 @@
+import 'package:intl/intl.dart';
+
 import '../../Components/micro/field_component.dart';
 import 'package:flutter/material.dart';
 
 class PolicyListCard extends StatelessWidget {
   final dynamic object;
   final int choice;
+  final DateFormat formatter = DateFormat('dd/MM/yyyy');
   PolicyListCard({this.object, this.choice});
   mainContent() {
     return Row(
@@ -15,15 +18,17 @@ class PolicyListCard extends StatelessWidget {
           children: [
             FieldComponent(
               field: 'Policy No',
-              value: object.policyNo,
+              value: object['polnum'],
             ),
             FieldComponent(
               field: 'Start Date',
-              value: object.startDate,
+              //value: object['occdate'],
+              value: formatter
+                  .format(DateTime.parse(object['occdate'] + 'T000000')),
             ),
             FieldComponent(
               field: 'Product',
-              value: object.product,
+              value: object['product'],
             ),
           ],
         ),
@@ -32,11 +37,13 @@ class PolicyListCard extends StatelessWidget {
           children: [
             FieldComponent(
               field: 'Premium',
-              value: object.premium.toString(),
+              value: object['prem'],
             ),
             FieldComponent(
               field: 'End Date',
-              value: object.endDate,
+              //value: object['btdate'],
+              value: formatter
+                  .format(DateTime.parse(object['btdate'] + 'T000000')),
             ),
           ],
         ),
