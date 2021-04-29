@@ -255,7 +255,7 @@ List<Address> listAddresses = [
     city: 'Raipur',
     mobile: '+91 8717892888',
     email: 'atikagarwal4@gmail.com',
-    policyNo: '24569AB8712345455',
+    policyNo: '793150504',
   ),
   Address(
     line1: 'H5, Hostel 5',
@@ -265,7 +265,7 @@ List<Address> listAddresses = [
     city: 'Bhopal',
     mobile: '+91 7987588988',
     email: 'mayankpatel@gmail.com',
-    policyNo: '12369BH8712345488',
+    policyNo: '793150505',
   ),
   Address(
     line1: '113, Bakar Mahal',
@@ -275,7 +275,7 @@ List<Address> listAddresses = [
     city: 'Barrackpore',
     mobile: '+91 8236830500',
     email: 'sivshankaragarwal@gmail.com',
-    policyNo: '87469AB8712345455',
+    policyNo: '793150517',
   ),
   Address(
     line1: '7, Gujrati Colony',
@@ -285,7 +285,7 @@ List<Address> listAddresses = [
     city: 'Indore',
     mobile: '+91 9340023761',
     email: 'vedantmathe@gmail.com',
-    policyNo: '90269BH8712345455',
+    policyNo: '793150518',
   ),
   Address(
     line1: '9, Harshit Nagar',

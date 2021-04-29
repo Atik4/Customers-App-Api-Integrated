@@ -5,6 +5,7 @@ import '../../Components/custom_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import '../../Components/search_bar.dart';
 import '../../constants.dart';
+import 'address_change_final.dart';
 
 class AddressChangePolicyList extends StatefulWidget {
   int choice;
@@ -98,7 +99,7 @@ class _AddressChangePolicyListState extends State<AddressChangePolicyList> {
           print("len: " + this.selectedPolicies.length.toString());
           if (count > 0) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return FinalChangeScreen(
+              return AddressChangeFinalScreen(
                 selectedCards: this.selectedPolicies,
                 choice: widget.choice,
               );

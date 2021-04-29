@@ -6,7 +6,13 @@ import 'package:flutter/material.dart';
 class CustomDropdown extends StatefulWidget {
   final String text;
   final dynamic card;
-  const CustomDropdown({Key key, @required this.text, @required this.card})
+  Function selectPolicy, removePolicy;
+  CustomDropdown(
+      {Key key,
+      @required this.text,
+      @required this.card,
+      this.selectPolicy,
+      this.removePolicy})
       : super(key: key);
 
   @override
@@ -86,6 +92,11 @@ class _CustomDropdownState extends State<CustomDropdown> {
                 onChanged: (bool value) {
                   setState(() {
                     this.checkBoxValue = value;
+                    if (value) {
+                      widget.selectPolicy(widget.text);
+                    } else {
+                      widget.removePolicy(widget.text);
+                    }
                   });
                 },
               ),

@@ -1,8 +1,4 @@
 import '../../Components/file_selector.dart';
-
-import '../../Components/policyListCards/address_card.dart';
-import '../../Components/custom_dropdown.dart';
-
 import '../buttons/cancel_button.dart';
 import '../buttons/save_button.dart';
 import '../../Models/user_models.dart';
@@ -30,6 +26,7 @@ class _AddressChangeCardState extends State<AddressChangeCard> {
         line2: address2,
         line3: address3,
         pinCode: postalcode,
+        city: city,
         mobile: mobile,
         email: email);
     widget.setFormObject(address);

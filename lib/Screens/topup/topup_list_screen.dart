@@ -1,9 +1,7 @@
-import 'package:insuranceproject2/utils/auth_utils.dart';
-import 'package:insuranceproject2/utils/network_utils.dart';
+import '../../utils/auth_utils.dart';
+import '../../utils/network_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../Screens/policyList/policy_list_final.dart';
-
 import '../../Components/custom_appbar.dart';
 import '../../Components/policyListCards/topup_change_card.dart';
 import '../../Components/policyListCards/policy_list_card.dart';
