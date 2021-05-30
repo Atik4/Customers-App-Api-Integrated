@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../Models/user_models.dart';
 import '../micro/field_component.dart';
+import 'package:intl/intl.dart';
 
-class BankChangePolicyCard extends StatefulWidget {
-  BankChangeListClass bankChangeListClass;
-  BankChangePolicyCard({this.bankChangeListClass, Key key}) : super(key: key);
-  @override
-  _BankChangePolicyCardState createState() => _BankChangePolicyCardState();
-}
-
-class _BankChangePolicyCardState extends State<BankChangePolicyCard> {
+class BankChangePolicyCard extends StatelessWidget {
+  final dynamic object;
+  BankChangePolicyCard({this.object});
+  final DateFormat formatter = DateFormat('dd/MM/yyyy');
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,19 +22,19 @@ class _BankChangePolicyCardState extends State<BankChangePolicyCard> {
             children: [
               FieldComponent(
                 field: 'Policy No',
-                value: widget.bankChangeListClass.policyNo,
+                value: object['polnum'],
               ),
               FieldComponent(
                 field: 'Policy Owner',
-                value: widget.bankChangeListClass.policyOwner,
+                value: object['ownernum'],
               ),
               FieldComponent(
                 field: 'Policy Status',
-                value: widget.bankChangeListClass.policyStatus,
+                value: object['polstat'],
               ),
               FieldComponent(
                 field: 'Billing Frequency',
-                value: widget.bankChangeListClass.billingFrequency,
+                value: object['billfreq'],
               ),
             ],
           ),
@@ -47,19 +43,22 @@ class _BankChangePolicyCardState extends State<BankChangePolicyCard> {
             children: [
               FieldComponent(
                 field: 'Start Date',
-                value: widget.bankChangeListClass.startDate,
+                value: formatter
+                    .format(DateTime.parse(object['occdate'] + 'T000000')),
               ),
               FieldComponent(
                 field: 'Life Assured',
-                value: widget.bankChangeListClass.lifeAssured,
+                value: object['polnum'],
               ),
               FieldComponent(
                 field: 'Premium Status',
-                value: widget.bankChangeListClass.premiumPayingStatus,
+                value: object['premstat'],
               ),
               FieldComponent(
                 field: 'Paid to Date',
-                value: widget.bankChangeListClass.paidToDate,
+                value: formatter
+                    .format(DateTime.parse(object['ptdate'] + 'T000000')),
+                //value: object['ptdate'],
               ),
             ],
           ),

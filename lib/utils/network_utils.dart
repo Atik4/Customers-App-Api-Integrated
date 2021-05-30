@@ -61,7 +61,7 @@ class NetworkUtils {
 
       if (response.statusCode == 200) {
         var responseJson = json.decode(response.body);
-        responseJson['valid'] = true;
+        //responseJson['valid'] = true;
         return responseJson;
       } else {
         final responseJson = {
@@ -77,6 +77,47 @@ class NetworkUtils {
       if (exception.toString().contains('SocketException')) {
         final responseJson = {'valid': false, 'networkError': true};
         return responseJson;
+      } else {
+        return null;
+      }
+    }
+  }
+
+  static dynamic postWithBody1(
+      var bodyData, var authtoken, var endPoint) async {
+    var uri = host + endPoint;
+
+    var body = jsonEncode(bodyData);
+    Map<String, String> headers = {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Accept': '*/*',
+      'Fit-screen': 'ALL',
+      'Authorization': 'Bearer $authtoken',
+      'Charset': 'utf-8'
+    };
+
+    try {
+      final response = await http.post(uri, headers: headers, body: body);
+      if (response.statusCode == 200) {
+        var responseJson = await json.decode(json.encode(response.body));
+        return responseJson;
+      } else {
+        final responseJson = {
+          'valid': false,
+          'networkError': false,
+          'message': json.decode(response.body)['body']
+        };
+
+        return responseJson;
+      }
+    } catch (exception) {
+      print(exception);
+      if (exception.toString().contains('SocketException')) {
+        final responseJson = {'valid': false, 'networkError': true};
+        return responseJson;
+      } else if (exception.toString().contains('FormatException')) {
+        final response = await http.post(uri, headers: headers, body: body);
+        return response;
       } else {
         return null;
       }

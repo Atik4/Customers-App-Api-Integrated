@@ -88,7 +88,7 @@ class _MultiSelectPolicyCardState extends State<MultiSelectPolicyCard> {
       );
     } else if (widget.choice == 2) {
       return BankChangePolicyCard(
-        bankChangeListClass: widget.cardContent,
+        object: widget.cardContent,
       );
     } else if (widget.choice == 3) {
       return ReportGenerationPolicyCard(

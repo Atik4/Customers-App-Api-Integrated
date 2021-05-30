@@ -223,7 +223,7 @@ class _PolicyCardState extends State<PolicyCard> {
       );
     } else if (widget.choice == 2) {
       return BankChangePolicyCard(
-        bankChangeListClass: widget.cardContent,
+        object: widget.cardContent,
       );
     }
   }

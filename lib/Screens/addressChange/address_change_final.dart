@@ -64,13 +64,13 @@ class _AddressChangeFinalScreenState extends State<AddressChangeFinalScreen> {
       return CustomDropdown(
           text: 'Change Frequency',
           card: BankChangePolicyCard(
-            bankChangeListClass: listBankChangeCardClass[index],
+            object: listBankChangeCardClass[index],
           ));
     } else if (widget.choice == 2) {
       return CustomDropdown(
           text: widget.selectedCards[index].policyNo,
           card: BankChangePolicyCard(
-            bankChangeListClass: widget.selectedCards[index],
+            object: widget.selectedCards[index],
           ));
     }
   }
